@@ -13,6 +13,17 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
         '@tests' => '@app/tests',
     ],
+
+    'modules' => [
+        'user' => [
+            'class' => Da\User\Module::class,
+            'allowUnconfirmedEmailLogin' => false,
+            'enableRegistration' => true,
+            'enableEmailConfirmation' => true,
+            'administratorPermissionName' => 'admin',
+        ],
+    ],
+
     'components' => [
 
         'authManager' => [
