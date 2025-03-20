@@ -14,6 +14,11 @@ $config = [
         '@tests' => '@app/tests',
     ],
     'components' => [
+
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
+
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -27,6 +32,20 @@ $config = [
         ],
         'db' => $db,
     ],
+
+    'controllerMap' => [
+        'migrate' => [
+            'class' => \yii\console\controllers\MigrateController::class,
+            'migrationPath' => [
+                '@app/migrations',
+                '@yii/rbac/migrations',
+            ],
+            'migrationNamespaces' => [
+                'Da\User\Migration',
+            ],
+        ],
+    ],
+
     'params' => $params,
     /*
     'controllerMap' => [
